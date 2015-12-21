@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 Simple module to interact with Fieldbook (fieldbook.com)
 
@@ -15,6 +13,8 @@ each function has different args.
 
 import json
 import requests
+
+
 
 global url
 url = 'https://api.fieldbook.com/v1/'
