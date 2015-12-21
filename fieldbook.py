@@ -7,9 +7,19 @@ global headers
 headers = {'content-type': 'application/json', 'accept':'application/json'}
 
 def get(api_key, book_id, table, row):
+    """
+    Get data stored in Fieldbook table or row.
+
+    :arg api_key: A tuple with authentication, ex ('key1', '7f7d7s738858f7g')
+    :arg book_id: A string with the Fieldbook book id, ex '7s87tt466rg86drg8'
+    :arg table: A string with the table from the book, ex 'assignments'
+    :arg row: Row number to retrieve, if not positive real no row assumed, ex 1
+
+    :return: Requests object containing request information and json.
+    """
     global url
     global headers
-    if not row:
+    if row < 1:
         final_url = url + book_id + '/' + table
     else:
         final_url = url + book_id + '/' + table + '/' + str(row)
@@ -18,6 +28,18 @@ def get(api_key, book_id, table, row):
 
 
 def update(api_key, book_id, table, row, value):
+    """
+    Update data stored in Fieldbook table to new values.
+
+    :arg api_key: A tuple with authentication, ex ('key1', '7f7d7s738858f7g')
+    :arg book_id: A string with the Fieldbook book id, ex '7s87tt466rg86drg8'
+    :arg table: A string with the table from the book, ex 'assignments'
+    :arg row: Row number to update, ex 1
+    :arg value: Dict containing values to be updated in column:value form,
+        ex {'task':'Clean', 'length':'10 minutes'}
+
+    :return: Requests object containing request information and json.
+    """
     global url
     global headers
     final_url = url + book_id + '/' + table + '/' + str(row)
@@ -27,6 +49,16 @@ def update(api_key, book_id, table, row, value):
 
 
 def delete(api_key, book_id, table, row):
+    """
+    Delete data stored in Fieldbook table.
+
+    :arg api_key: A tuple with authentication, ex ('key1', '7f7d7s738858f7g')
+    :arg book_id: A string with the Fieldbook book id, ex '7s87tt466rg86drg8'
+    :arg table: A string with the table from the book, ex 'assignments'
+    :arg row: Row number to delete, ex 1
+
+    :return: Requests object containing request information and json.
+    """
     global url
     headers = {'accept':'application/json'}
     final_url = url + book_id + '/' + table + '/' + str(row)
@@ -35,6 +67,17 @@ def delete(api_key, book_id, table, row):
 
 
 def create(api_key, book_id, table, value):
+    """
+    Create new row in Fieldbook table.
+
+    :arg api_key: A tuple with authentication, ex ('key1', '7f7d7s738858f7g')
+    :arg book_id: A string with the Fieldbook book id, ex '7s87tt466rg86drg8'
+    :arg table: A string with the table from the book, ex 'assignments'
+    :arg value: Dict containing values for new row in column:value form,
+        ex {'task':'Clean', 'length':'10 minutes'}
+
+    :return: Requests object containing request information and json.
+    """
     global url
     global headers
     final_url = url + book_id + '/' + table
