@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+
+"""
+Simple module to interact with Fieldbook (fieldbook.com)
+
+Every function needs 3 standard args, an api key, a book id to work with, and a
+table to work with. They are the first three args in that order. From there,
+each function has different args.
+
+:function get: Get data from Fieldbook
+:function update: Change data in Fieldbook
+:function delete: Delete data from Fieldbook
+:function create: Add new data to Fieldbook
+"""
+
 import json
 import requests
 
