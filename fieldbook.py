@@ -1,7 +1,7 @@
 """
 Simple module to interact with Fieldbook (fieldbook.com)
 
-Every function needs 3 standard args, an api key, a book id to work with, and a
+Every function needs 3 standard args: an api key, a book id to work with, and a
 table to work with. They are the first three args in that order. From there,
 each function has different args.
 
